@@ -1,6 +1,6 @@
 {
   "autoload": {
-    "ns": "TeqFw_Plugin",
+    "ns": "TeqFw_I18n",
     "path": "./src"
   }
 }

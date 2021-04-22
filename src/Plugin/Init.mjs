@@ -2,11 +2,11 @@
  * Class to integrate plugin into TeqFW application.
  * @extends TeqFw_Core_App_Plugin_Init_Base
  */
-export default class Vendor_Project_Plugin_Init {
+export default class TeqFw_I18n_Plugin_Init {
 
     constructor(spec) {
-        /** @type {Vendor_Project_Defaults} */
-        const DEF = spec['Vendor_Project_Defaults$'];    // instance singleton
+        /** @type {TeqFw_I18n_Defaults} */
+        const DEF = spec['TeqFw_I18n_Defaults$'];    // instance singleton
 
         this.getCommands = function () {
             return [];
@@ -20,7 +20,7 @@ export default class Vendor_Project_Plugin_Init {
 
         this.getServicesList = function () {
             return [
-                'Vendor_Project_Back_Service_Some$',
+                'TeqFw_I18n_Back_Service_Some$',
             ];
         };
 
