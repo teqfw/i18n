@@ -1,11 +1,23 @@
+/**
+ * Application level constants (hardcoded configuration).
+ */
 export default class TeqFw_I18n_Defaults {
-    BACK_REALM = 'project';  // realm for API services ('/api/project/...') and CLI commands ('project-...')
+    // realm for API services ('/api/i18n/...') and CLI commands ('i18n-...')
+    // must be equal to 'teqfw.json:http2.realm'
+    BACK_REALM = 'i18n';
+
     /** @type {TeqFw_Core_App_Defaults} */
     MOD_CORE;
 
+    // SERVICES ROUTES
+    SERV_load = '/load';
+
     constructor(spec) {
+        // EXTRACT DEPS
         /** @type {TeqFw_Core_App_Defaults} */
-        this.MOD_CORE = spec['TeqFw_Core_App_Defaults$'];    // pin 'core' defaults
+        this.MOD_CORE = spec['TeqFw_Core_App_Defaults$']; // instance singleton
+
+        // MAIN FUNCTIONALITY
         Object.freeze(this);
     }
 }

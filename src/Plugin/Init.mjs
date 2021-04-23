@@ -8,22 +8,6 @@ export default class TeqFw_I18n_Plugin_Init {
         /** @type {TeqFw_I18n_Defaults} */
         const DEF = spec['TeqFw_I18n_Defaults$'];    // instance singleton
 
-        this.getCommands = function () {
-            return [];
-        };
-
-        this.getHttpStaticMaps = function () {
-            return {
-                '/vue/': '/vue/dist/',
-            };
-        };
-
-        this.getServicesList = function () {
-            return [
-                'TeqFw_I18n_Back_Service_Some$',
-            ];
-        };
-
         this.getServicesRealm = function () {
             return DEF.BACK_REALM;
         };
