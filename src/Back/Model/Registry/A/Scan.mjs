@@ -49,15 +49,17 @@ function Factory(spec) {
             if ($fs.existsSync(rootI18n) && $fs.statSync(rootI18n).isDirectory()) {
                 const files = $fs.readdirSync(rootI18n);
                 for (const file of files) {
-                    const parts = FILE_MASK.exec(file);
-                    const ns = parts[1];
-                    const lang = parts[2];
-                    const path = $path.join(rootI18n, file);
-                    if ($fs.statSync(path).isFile()) {
-                        const json = $fs.readFileSync(path);
-                        const data = JSON.parse(json.toString());
-                        const dict = {[lang]: {[ns]: data}};
-                        deepMerge(result, dict);
+                    if (file.match(FILE_MASK)) {
+                        const parts = FILE_MASK.exec(file);
+                        const ns = parts[1];
+                        const lang = parts[2];
+                        const path = $path.join(rootI18n, file);
+                        if ($fs.statSync(path).isFile()) {
+                            const json = $fs.readFileSync(path);
+                            const data = JSON.parse(json.toString());
+                            const dict = {[lang]: {[ns]: data}};
+                            deepMerge(result, dict);
+                        }
                     }
                 }
             }
