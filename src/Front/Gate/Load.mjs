@@ -13,9 +13,9 @@ const NS = 'TeqFw_I18n_Front_Gate_Load';
 function Factory(spec) {
     // EXTRACT DEPS
     /** @type {TeqFw_I18n_Defaults} */
-    const DEF = spec['TeqFw_I18n_Defaults$'];   // instance singleton
+    const DEF = spec['TeqFw_I18n_Defaults$'];   // singleton
     /** @type {TeqFw_Core_App_Front_Gate_Connect} */
-    const backConnect = spec['TeqFw_Core_App_Front_Gate_Connect$']; // instance singleton
+    const backConnect = spec['TeqFw_Core_App_Front_Gate_Connect$']; // singleton
     /** @type {typeof TeqFw_I18n_Shared_Service_Route_Load.Response} */
     const Response = spec['TeqFw_I18n_Shared_Service_Route_Load#Response']; // class
 

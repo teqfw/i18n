@@ -19,7 +19,7 @@ class TeqFw_I18n_Back_Service_Load {
         /** @type {TeqFw_I18n_Defaults} */
         const DEF = spec['TeqFw_I18n_Defaults$'];
         /** @type {TeqFw_I18n_Back_Model_Registry} */
-        const registry = spec['TeqFw_I18n_Back_Model_Registry$']; // instance singleton
+        const registry = spec['TeqFw_I18n_Back_Model_Registry$']; // singleton
         /** @type {typeof TeqFw_Http2_Plugin_Handler_Service.Result} */
         const ApiResult = spec['TeqFw_Http2_Plugin_Handler_Service#Result']; // class
         /** @type {typeof TeqFw_I18n_Shared_Service_Route_Load.Request} */

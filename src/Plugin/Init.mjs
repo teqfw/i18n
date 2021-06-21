@@ -6,7 +6,7 @@ export default class TeqFw_I18n_Plugin_Init {
 
     constructor(spec) {
         /** @type {TeqFw_I18n_Defaults} */
-        const DEF = spec['TeqFw_I18n_Defaults$'];    // instance singleton
+        const DEF = spec['TeqFw_I18n_Defaults$'];    // singleton
 
         this.getServicesRealm = function () {
             return DEF.BACK_REALM;

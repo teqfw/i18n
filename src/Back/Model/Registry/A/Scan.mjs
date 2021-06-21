@@ -24,13 +24,13 @@ const FILE_MASK = /^([A-Za-z0-9_]*).([a-z]{2})(.json)$/;
 function Factory(spec) {
     // EXTRACT DEPS
     /** @type {TeqFw_I18n_Defaults} */
-    const DEF = spec['TeqFw_I18n_Defaults$']; // instance singleton
+    const DEF = spec['TeqFw_I18n_Defaults$']; // singleton
     /** @type {TeqFw_Di_Container} */
-    const container = spec[DEF.MOD_CORE.DI_CONTAINER]; // named singleton
+    const container = spec[DEF.MOD_CORE.DI_CONTAINER]; // singleton
     /** @type {TeqFw_Core_App_Front_Data_Config} */
-    const config = spec[DEF.MOD_CORE.DI_CONFIG]; // named singleton
+    const config = spec[DEF.MOD_CORE.DI_CONFIG]; // singleton
     /** @type {TeqFw_Core_App_Plugin_Registry} */
-    const registry = spec['TeqFw_Core_App_Plugin_Registry$']; // instance singleton
+    const registry = spec['TeqFw_Core_App_Plugin_Registry$']; // singleton
     /** @function {@type TeqFw_Core_App_Shared_Util.deepMerge} */
     const deepMerge = spec['TeqFw_Core_App_Shared_Util#deepMerge']; // ES6 module destructing
 

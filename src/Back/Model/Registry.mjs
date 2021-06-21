@@ -11,13 +11,13 @@ class TeqFw_I18n_Back_Model_Registry {
     constructor(spec) {
         // EXTRACT DEPS
         /** @type {TeqFw_I18n_Defaults} */
-        const DEF = spec['TeqFw_I18n_Defaults$']; // instance singleton
+        const DEF = spec['TeqFw_I18n_Defaults$']; // singleton
         /** @type {TeqFw_Core_App_Front_Data_Config} */
-        const config = spec[DEF.MOD_CORE.DI_CONFIG]; // named singleton
+        const config = spec[DEF.MOD_CORE.DI_CONFIG]; // singleton
         /** @type {typeof TeqFw_I18n_Api_Shared_Config} */
         const CfgPlugin = spec['TeqFw_I18n_Api_Shared_Config#']; // class
         /** @function {@type TeqFw_I18n_Back_Model_Registry_A_Scan} */
-        const aScan = spec['TeqFw_I18n_Back_Model_Registry_A_Scan$']; // instance singleton
+        const aScan = spec['TeqFw_I18n_Back_Model_Registry_A_Scan$']; // singleton
 
         // DEFINE WORKING VARS
         /** @type {TeqFw_I18n_Api_Shared_Config} */
