@@ -1,6 +1,6 @@
 /**
  * Config branch for the plugin (i18n).
- * @see TeqFw_Core_App_Config
+ * @see TeqFw_Core_App_Back_Config
  */
 class TeqFw_I18n_Api_Shared_Config {
     /**
