@@ -23,16 +23,12 @@ const FILE_MASK = /^([A-Za-z0-9_]*).([a-z]{2})(.json)$/;
  */
 function Factory(spec) {
     // EXTRACT DEPS
-    /** @type {TeqFw_I18n_Defaults} */
-    const DEF = spec['TeqFw_I18n_Defaults$']; // singleton
-    /** @type {TeqFw_Di_Container} */
-    const container = spec[DEF.MOD_CORE.DI_CONTAINER]; // singleton
-    /** @type {TeqFw_Core_App_Front_Data_Config} */
-    const config = spec[DEF.MOD_CORE.DI_CONFIG]; // singleton
-    /** @type {TeqFw_Core_App_Plugin_Registry} */
-    const registry = spec['TeqFw_Core_App_Plugin_Registry$']; // singleton
-    /** @function {@type TeqFw_Core_App_Shared_Util.deepMerge} */
-    const deepMerge = spec['TeqFw_Core_App_Shared_Util#deepMerge']; // ES6 module destructing
+    /** @type {TeqFw_Core_Back_Config} */
+    const config = spec['TeqFw_Core_Back_Config$']; // singleton
+    /** @type {TeqFw_Core_Plugin_Registry} */
+    const registry = spec['TeqFw_Core_Plugin_Registry$']; // singleton
+    /** @function {@type TeqFw_Core_Shared_Util.deepMerge} */
+    const deepMerge = spec['TeqFw_Core_Shared_Util#deepMerge']; // ES6 module destructing
 
     // DEFINE INNER FUNCTIONS
     /**
@@ -43,7 +39,7 @@ function Factory(spec) {
      */
     async function action() {
         const result = {};
-        const rootFs = config.path?.root; // path to project root
+        const rootFs = config.get()?.path?.root; // path to project root
         for (const item of registry.items()) {
             const rootI18n = $path.join(rootFs, I18N_DIR); // path to resources root
             if ($fs.existsSync(rootI18n) && $fs.statSync(rootI18n).isDirectory()) {

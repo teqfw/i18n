@@ -6,7 +6,7 @@ export default class TeqFw_I18n_Defaults {
     // must be equal to 'teqfw.json:http2.realm'
     BACK_REALM = 'i18n';
 
-    /** @type {TeqFw_Core_App_Defaults} */
+    /** @type {TeqFw_Core_Defaults} */
     MOD_CORE;
 
     // SERVICES ROUTES
@@ -14,8 +14,8 @@ export default class TeqFw_I18n_Defaults {
 
     constructor(spec) {
         // EXTRACT DEPS
-        /** @type {TeqFw_Core_App_Defaults} */
-        this.MOD_CORE = spec['TeqFw_Core_App_Defaults$']; // singleton
+        /** @type {TeqFw_Core_Defaults} */
+        this.MOD_CORE = spec['TeqFw_Core_Defaults$']; // singleton
 
         // MAIN FUNCTIONALITY
         Object.freeze(this);
