@@ -15,7 +15,7 @@ const NS = 'TeqFw_I18n_Back_Service_Load';
 class TeqFw_I18n_Back_Service_Load {
 
     constructor(spec) {
-        // CONSTRUCTOR INJECTED DEPS
+        // EXTRACT DEPS
         /** @type {TeqFw_I18n_Defaults} */
         const DEF = spec['TeqFw_I18n_Defaults$'];
         /** @type {TeqFw_I18n_Back_Model_Registry} */
