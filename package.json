@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/teqfw/i18n#readme",
   "dependencies": {
-    "@teqfw/http2": "github:teqfw/http2"
+    "@teqfw/http2": "github:teqfw/http2",
+    "i18next": "*",
+    "i18next-browser-languagedetector": "*"
   }
 }

@@ -25,8 +25,8 @@ function Factory(spec) {
     // EXTRACT DEPS
     /** @type {TeqFw_Core_Back_Config} */
     const config = spec['TeqFw_Core_Back_Config$']; // singleton
-    /** @type {TeqFw_Core_Plugin_Registry} */
-    const registry = spec['TeqFw_Core_Plugin_Registry$']; // singleton
+    /** @type {TeqFw_Core_Back_Scan_Plugin_Registry} */
+    const registry = spec['TeqFw_Core_Back_Scan_Plugin_Registry$']; // singleton
     /** @function {@type TeqFw_Core_Shared_Util.deepMerge} */
     const deepMerge = spec['TeqFw_Core_Shared_Util#deepMerge']; // ES6 module destructing
 

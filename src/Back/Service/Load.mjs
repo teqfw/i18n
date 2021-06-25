@@ -10,7 +10,7 @@ const NS = 'TeqFw_I18n_Back_Service_Load';
 
 /**
  * Service to remove weight stats data for the user.
- * @implements TeqFw_Http2_Api_Back_Service_Factory
+ * @implements TeqFw_Http2_Back_Api_Service_Factory
  */
 class TeqFw_I18n_Back_Service_Load {
 
