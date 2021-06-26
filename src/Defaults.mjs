@@ -6,6 +6,10 @@ export default class TeqFw_I18n_Defaults {
     // must be equal to 'teqfw.json:http2.realm'
     BACK_REALM = 'i18n';
 
+    DI = {
+        I18N: 'coreI18n'
+    };
+
     /** @type {TeqFw_Core_Defaults} */
     MOD_CORE;
 
