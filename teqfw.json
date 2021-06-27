@@ -12,5 +12,11 @@
       "/i18next-detect/": "/i18next-browser-languagedetector/dist/umd/",
       "/i18next/": "/i18next/dist/umd/"
     }
+  },
+  "web": {
+    "statics": {
+      "/i18next-detect/": "/i18next-browser-languagedetector/dist/umd/",
+      "/i18next/": "/i18next/dist/umd/"
+    }
   }
 }
