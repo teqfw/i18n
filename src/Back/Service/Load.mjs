@@ -16,10 +16,10 @@ export default class TeqFw_I18n_Back_Service_Load {
         /** @type {TeqFw_I18n_Back_Model_Registry} */
         const registry = spec['TeqFw_I18n_Back_Model_Registry$'];
         /** @type {TeqFw_I18n_Shared_Service_Route_Load.Factory} */
-        const fRoute = spec['TeqFw_I18n_Shared_Service_Route_Load#Factory$'];
+        const route = spec['TeqFw_I18n_Shared_Service_Route_Load#Factory$'];
 
         // DEFINE INSTANCE METHODS
-        this.getRouteFactory = () => fRoute;
+        this.getRouteFactory = () => route;
 
         this.getService = function () {
             // DEFINE INNER FUNCTIONS
