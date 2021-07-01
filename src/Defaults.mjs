@@ -19,7 +19,7 @@ export default class TeqFw_I18n_Defaults {
     constructor(spec) {
         // EXTRACT DEPS
         /** @type {TeqFw_Core_Defaults} */
-        this.MOD_CORE = spec['TeqFw_Core_Defaults$']; // singleton
+        // this.MOD_CORE = spec['TeqFw_Core_Defaults$']; // singleton
 
         // MAIN FUNCTIONALITY
         Object.freeze(this);
