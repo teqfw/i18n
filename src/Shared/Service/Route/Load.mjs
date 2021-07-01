@@ -1,5 +1,5 @@
 /**
- * Request and response for "Load i18n resources" service.
+ * Route data for service to load i18n resources on the front.
  *
  * @namespace TeqFw_I18n_Shared_Service_Route_Load
  */
@@ -18,15 +18,54 @@ class Request {
 }
 
 /**
+ * This response contains unstructured data.
  * @memberOf TeqFw_I18n_Shared_Service_Route_Load
  */
-class Response {
+class Response {}
+
+/**
+ * Factory to create new DTOs and get route address.
+ * @memberOf TeqFw_I18n_Shared_Service_Route_Load
+ * @implements TeqFw_Web_Back_Api_Service_Factory_IRoute
+ */
+class Factory {
+    constructor(spec) {
+        // EXTRACT DEPS
+        /** @type {TeqFw_I18n_Shared_Defaults} */
+        const DEF = spec['TeqFw_I18n_Shared_Defaults$'];
+
+        // DEFINE INSTANCE METHODS
+        this.getRoute = () => `/${DEF.NAME}${DEF.SRV.LOAD}`;
+
+        /**
+         * @param {Request|null} data
+         * @return {TeqFw_I18n_Shared_Service_Route_Load.Request}
+         */
+        this.createReq = function (data = null) {
+            const res = new Request();
+            res.lang = data?.lang;
+            res.namespace = data?.namespace;
+            return res;
+        }
+
+        /**
+         * This response contains unstructured data.
+         * @param {Response|null} data
+         * @return {TeqFw_I18n_Shared_Service_Route_Load.Response}
+         */
+        this.createRes = function (data = null) {
+            return Object.assign(new Response(), data);
+        }
+
+    }
 }
 
 // MODULE'S EXPORT
+Object.defineProperty(Factory, 'name', {value: `${NS}.${Factory.constructor.name}`});
 Object.defineProperty(Request, 'name', {value: `${NS}.${Request.constructor.name}`});
 Object.defineProperty(Response, 'name', {value: `${NS}.${Response.constructor.name}`});
 export {
+    Factory,
     Request,
     Response,
 };

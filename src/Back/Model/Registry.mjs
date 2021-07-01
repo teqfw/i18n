@@ -14,13 +14,13 @@ class TeqFw_I18n_Back_Model_Registry {
         const DEF = spec['TeqFw_I18n_Defaults$']; // singleton
         /** @type {TeqFw_Core_Back_Config} */
         const config = spec['TeqFw_Core_Back_Config$']; // singleton
-        /** @type {typeof TeqFw_I18n_Api_Shared_Config} */
-        const CfgPlugin = spec['TeqFw_I18n_Api_Shared_Config#']; // class
+        /** @type {typeof TeqFw_I18n_Back_Api_Dto_Config_Local} */
+        const CfgPlugin = spec['TeqFw_I18n_Back_Api_Dto_Config_Local#']; // class
         /** @function {@type TeqFw_I18n_Back_Model_Registry_A_Scan} */
         const aScan = spec['TeqFw_I18n_Back_Model_Registry_A_Scan$']; // singleton
 
         // DEFINE WORKING VARS
-        /** @type {TeqFw_I18n_Api_Shared_Config} */
+        /** @type {TeqFw_I18n_Back_Api_Dto_Config_Local} */
         const cfgPlugin = Object.assign(new CfgPlugin(), config.get()?.local[DEF.BACK_REALM]);
         /** @type {Object} all available i18n resource (lang/namespace/...)  */
         let registry;
