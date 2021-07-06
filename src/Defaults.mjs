@@ -10,7 +10,7 @@ export default class TeqFw_I18n_Defaults {
         I18N: 'coreI18n'
     };
 
-    /** @type {TeqFw_Core_Defaults} */
+    /** @type {TeqFw_Core_Back_Defaults} */
     MOD_CORE;
 
     // SERVICES ROUTES
@@ -18,8 +18,8 @@ export default class TeqFw_I18n_Defaults {
 
     constructor(spec) {
         // EXTRACT DEPS
-        /** @type {TeqFw_Core_Defaults} */
-        // this.MOD_CORE = spec['TeqFw_Core_Defaults$']; // singleton
+        /** @type {TeqFw_Core_Back_Defaults} */
+        // this.MOD_CORE = spec['TeqFw_Core_Back_Defaults$']; // singleton
 
         // MAIN FUNCTIONALITY
         Object.freeze(this);
