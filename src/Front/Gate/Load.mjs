@@ -17,7 +17,7 @@ function Factory(spec) {
     /** @type {TeqFw_Http2_Front_Gate_Connect} */
     const backConnect = spec['TeqFw_Http2_Front_Gate_Connect$']; // singleton
     /** @type {typeof TeqFw_I18n_Shared_Service_Route_Load.Response} */
-    const Response = spec['TeqFw_I18n_Shared_Service_Route_Load#Response']; // class
+    const Response = spec['TeqFw_I18n_Shared_Service_Route_Load#Response'];
 
     // DEFINE INNER FUNCTIONS
     /**

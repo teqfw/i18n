@@ -15,7 +15,7 @@ class TeqFw_I18n_Back_Model_Registry {
         /** @type {TeqFw_Core_Back_Config} */
         const config = spec['TeqFw_Core_Back_Config$']; // singleton
         /** @type {typeof TeqFw_I18n_Back_Api_Dto_Config_Local} */
-        const CfgPlugin = spec['TeqFw_I18n_Back_Api_Dto_Config_Local#']; // class
+        const CfgPlugin = spec['TeqFw_I18n_Back_Api_Dto_Config_Local#'];
         /** @function {@type TeqFw_I18n_Back_Model_Registry_A_Scan} */
         const aScan = spec['TeqFw_I18n_Back_Model_Registry_A_Scan$']; // singleton
 
