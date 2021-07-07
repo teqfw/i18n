@@ -24,11 +24,11 @@ const FILE_MASK = /^([A-Za-z0-9_]*).([a-z]{2})(.json)$/;
 function Factory(spec) {
     // EXTRACT DEPS
     /** @type {TeqFw_Core_Back_Config} */
-    const config = spec['TeqFw_Core_Back_Config$']; // singleton
+    const config = spec['TeqFw_Core_Back_Config$'];
     /** @type {TeqFw_Core_Back_Scan_Plugin_Registry} */
-    const registry = spec['TeqFw_Core_Back_Scan_Plugin_Registry$']; // singleton
-    /** @function {@type TeqFw_Core_Shared_Util.deepMerge} */
-    const deepMerge = spec['TeqFw_Core_Shared_Util#deepMerge']; // ES6 module destructing
+    const registry = spec['TeqFw_Core_Back_Scan_Plugin_Registry$'];
+    /** @type {Function|TeqFw_Core_Shared_Util.deepMerge} */
+    const deepMerge = spec['TeqFw_Core_Shared_Util#deepMerge'];
 
     // DEFINE INNER FUNCTIONS
     /**
@@ -69,7 +69,7 @@ function Factory(spec) {
 }
 
 // MODULE'S EXPORT
-Object.defineProperty(Factory, 'name', {value: `${NS}.${Factory.constructor.name}`});
+Object.defineProperty(Factory, 'name', {value: `${NS}.${Factory.name}`});
 export {
     Factory as default
 };
