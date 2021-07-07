@@ -35,7 +35,7 @@ class Factory {
         const DEF = spec['TeqFw_I18n_Shared_Defaults$'];
 
         // DEFINE INSTANCE METHODS
-        this.getRoute = () => `/${DEF.NAME}${DEF.SRV.LOAD}`;
+        this.getRoute = () => `/${DEF.NAME}${DEF.SRV_LOAD}`;
 
         /**
          * @param {Request|null} data
