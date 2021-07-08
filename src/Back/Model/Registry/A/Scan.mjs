@@ -17,7 +17,7 @@ const FILE_MASK = /^([A-Za-z0-9_]*).([a-z]{2})(.json)$/;
 /**
  * Factory to setup execution context and to create the action.
  *
- * @param {TeqFw_Di_SpecProxy} spec
+ * @param {TeqFw_Di_Shared_SpecProxy} spec
  * @return function(): Object
  * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
  */

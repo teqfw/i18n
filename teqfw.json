@@ -1,7 +1,9 @@
 {
-  "autoload": {
-    "ns": "TeqFw_I18n",
-    "path": "./src"
+  "di": {
+    "autoload": {
+      "ns": "TeqFw_I18n",
+      "path": "./src"
+    }
   },
   "web": {
     "api": {
