@@ -39,7 +39,7 @@ function Factory(spec) {
      */
     async function action() {
         const result = {};
-        const rootFs = config.get()?.path?.root; // path to project root
+        const rootFs = config.getBoot().projectRoot;
         for (const item of registry.items()) {
             const rootI18n = $path.join(rootFs, I18N_DIR); // path to resources root
             if ($fs.existsSync(rootI18n) && $fs.statSync(rootI18n).isDirectory()) {

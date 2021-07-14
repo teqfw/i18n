@@ -21,7 +21,7 @@ class TeqFw_I18n_Back_Model_Registry {
 
         // DEFINE WORKING VARS
         /** @type {TeqFw_I18n_Back_Api_Dto_Config_Local} */
-        const cfgPlugin = Object.assign(new CfgPlugin(), config.get()?.local[DEF.DESC_NODE]);
+        const cfgPlugin = Object.assign(new CfgPlugin(), config.getLocal(DEF.DESC_NODE));
         /** @type {Object} all available i18n resource (lang/namespace/...)  */
         let registry;
 
