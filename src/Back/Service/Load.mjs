@@ -34,7 +34,7 @@ export default class TeqFw_I18n_Back_Service_Load {
                 const res = context.getOutData();
                 const lang = req.lang;
                 const ns = req.namespace;
-                const bundle = await registry.getBundle(lang, ns);
+                const bundle = await registry.getFront(lang, ns);
                 Object.assign(res, bundle);
             }
 

@@ -5,13 +5,16 @@
       "path": "./src"
     }
   },
+  "core": {
+    "onInit": "TeqFw_I18n_Back_Plugin_Init"
+  },
   "web": {
     "services": [
       "TeqFw_I18n_Back_Service_Load"
     ],
     "statics": {
-      "/i18next-detect/": "/i18next-browser-languagedetector/dist/umd/",
-      "/i18next/": "/i18next/dist/umd/"
+      "/i18n-bld/": "/i18next-browser-languagedetector/dist/umd/",
+      "/i18n/": "/i18next/dist/umd/"
     }
   }
 }

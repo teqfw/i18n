@@ -1,17 +1,15 @@
 /**
- * Factory to create function to scan teqfw-plugins for i18n resources.
+ * Scanner to load i18n resources for teq-plugins.
  *
  * @namespace TeqFw_I18n_Back_Model_Registry_A_Scan
  */
 // MODULE'S IMPORT
-import $fs from 'fs';
-import $path from 'path';
+import {existsSync, readdirSync, readFileSync, statSync} from 'fs';
+import {join} from 'path';
 
 // MODULE'S VARS
 const NS = 'TeqFw_I18n_Back_Model_Registry_A_Scan';
-const I18N_DIR = 'i18n'; // root folder in plugin to store i18n resources (front.lang.json)
-/** @type {RegExp} expression for filename with i18n resources (namespace.ln.json)  */
-const FILE_MASK = /^([A-Za-z0-9_]*).([a-z]{2})(.json)$/;
+const FILE_MASK = /^([A-Za-z-]*)(.json)$/; // 'es-us.json'
 
 // MODULE'S FUNCTIONS
 /**
@@ -21,10 +19,10 @@ const FILE_MASK = /^([A-Za-z0-9_]*).([a-z]{2})(.json)$/;
  * @return function(): Object
  * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
  */
-function Factory(spec) {
+export default function Factory(spec) {
     // EXTRACT DEPS
-    /** @type {TeqFw_Core_Back_Config} */
-    const config = spec['TeqFw_Core_Back_Config$'];
+    /** @type {TeqFw_I18n_Back_Defaults} */
+    const DEF = spec['TeqFw_I18n_Back_Defaults$'];
     /** @type {TeqFw_Core_Back_Scan_Plugin_Registry} */
     const registry = spec['TeqFw_Core_Back_Scan_Plugin_Registry$'];
     /** @type {Function|TeqFw_Core_Shared_Util.deepMerge} */
@@ -32,35 +30,64 @@ function Factory(spec) {
 
     // DEFINE INNER FUNCTIONS
     /**
-     * Scan teqfw-plugins for i18n resources.
+     * Scan teq-plugins for i18n resources.
      *
-     * @returns {Promise<{}>}
+     * @return {Promise<{back: {}, front: {}}>}
      * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
      */
     async function action() {
-        const result = {};
-        const rootFs = config.getBoot().projectRoot;
-        for (const item of registry.items()) {
-            const rootI18n = $path.join(rootFs, I18N_DIR); // path to resources root
-            if ($fs.existsSync(rootI18n) && $fs.statSync(rootI18n).isDirectory()) {
-                const files = $fs.readdirSync(rootI18n);
+        // DEFINE INNER FUNCTIONS
+        /**
+         * Read all langs resources from one folder (shared, back, front).
+         * @param {string} path full path to the folder with language resources
+         * @param {string} ns namespace for loaded resources
+         * @return {{}}
+         */
+        function readLangs(path, ns) {
+            const res = {};
+            if (existsSync(path) && statSync(path).isDirectory()) {
+                const files = readdirSync(path);
                 for (const file of files) {
-                    if (file.match(FILE_MASK)) {
+                    const fullPath = join(path, file);
+                    if (statSync(fullPath).isFile()) {
                         const parts = FILE_MASK.exec(file);
-                        const ns = parts[1];
-                        const lang = parts[2];
-                        const path = $path.join(rootI18n, file);
-                        if ($fs.statSync(path).isFile()) {
-                            const json = $fs.readFileSync(path);
+                        if (Array.isArray(parts)) {
+                            const json = readFileSync(fullPath);
                             const data = JSON.parse(json.toString());
+
+                            const lang = parts[1];
                             const dict = {[lang]: {[ns]: data}};
-                            deepMerge(result, dict);
+                            Object.assign(res, dict);
                         }
                     }
                 }
             }
+            return res;
         }
-        return result;
+
+        // MAIN FUNCTIONALITY
+        const back = {}, front = {};
+        for (const item of registry.getItemsByLevels()) {
+            const ns = item.name;
+            const dirI18n = join(item.path, DEF.DIR_I18N); // path to root of i18n resources
+            if (existsSync(dirI18n) && statSync(dirI18n).isDirectory()) {
+                // read all languages resources by area
+                const dirShared = join(dirI18n, DEF.DIR_SHARED);
+                const dirBack = join(dirI18n, DEF.DIR_BACK);
+                const dirFront = join(dirI18n, DEF.DIR_FRONT);
+                const shared = readLangs(dirShared, ns);
+                const backOnly = readLangs(dirBack, ns);
+                const frontOnly = readLangs(dirFront, ns);
+                // merge plugin's shared and back/front resources with overwrite
+                const backPlugin = deepMerge({}, shared);
+                deepMerge(backPlugin, backOnly);
+                const frontPlugin = deepMerge(shared, frontOnly);
+                // merge plugin's resources and app global resources
+                deepMerge(back, backPlugin);
+                deepMerge(front, frontPlugin);
+            }
+        }
+        return {back, front};
     }
 
     // COMPOSE RESULT
@@ -68,8 +95,5 @@ function Factory(spec) {
     return action;
 }
 
-// MODULE'S EXPORT
+// finalize code components for this es6-module
 Object.defineProperty(Factory, 'name', {value: `${NS}.${Factory.name}`});
-export {
-    Factory as default
-};

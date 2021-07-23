@@ -1,7 +1,7 @@
 {
   "name": "@teqfw/i18n",
   "version": "0.1.0",
-  "description": "Internationalization plugin for TeqFW apps.",
+  "description": "TeqFW: internationalization.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,11 +10,15 @@
     "url": "git+https://github.com/teqfw/i18n.git"
   },
   "keywords": [
-    "hobby",
+    "ecmascript 2015",
+    "es6+",
     "i18n",
     "internationalization",
-    "pet-project",
     "pwa",
+    "spa",
+    "teqfw",
+    "tequila framework",
+    "web applications",
     "web-apps"
   ],
   "author": "Alex Gusev <alex@flancer64.com>",
@@ -24,7 +28,7 @@
   },
   "homepage": "https://github.com/teqfw/i18n#readme",
   "dependencies": {
-    "@teqfw/http2": "github:teqfw/http2",
+    "@teqfw/web": "github:teqfw/web",
     "i18next": "*",
     "i18next-browser-languagedetector": "*"
   }
