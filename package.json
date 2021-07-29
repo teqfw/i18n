@@ -1,7 +1,7 @@
 {
   "name": "@teqfw/i18n",
   "version": "0.1.0",
-  "description": "TeqFW: internationalization.",
+  "description": "TeqFW: internationalization (i18next).",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/teqfw/i18n#readme",
   "dependencies": {
-    "@teqfw/web": "github:teqfw/web",
+    "@teqfw/web": "*",
     "i18next": "*",
     "i18next-browser-languagedetector": "*"
   }
