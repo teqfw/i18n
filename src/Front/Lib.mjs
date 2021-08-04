@@ -42,14 +42,13 @@ export default class TeqFw_I18n_Front_Lib {
      * @return {Promise<void>}
      */
     async setLang(code) {
-        debugger
-        const boo = this.#i18n.changeLanguage(code);
         /** @type {TeqFw_I18n_Shared_Service_Route_Load.Request} */
         const req = this.#route.createReq();
         req.lang = code;
         const res = await this.#gate.send(req, this.#route);
         for (const ns of Object.keys(res))
-            this.#i18n.addResourceBundle(lang, ns, res[ns], true, true);
+            this.#i18n.addResourceBundle(code, ns, res[ns], true, true);
+        this.#i18n.changeLanguage(code);
     }
 
     /**
