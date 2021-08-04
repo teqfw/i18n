@@ -36,6 +36,23 @@ export default class TeqFw_I18n_Front_Lib {
     }
 
     /**
+     * Set current language, load language resources if required.
+     *
+     * @param {string} code
+     * @return {Promise<void>}
+     */
+    async setLang(code) {
+        debugger
+        const boo = this.#i18n.changeLanguage(code);
+        /** @type {TeqFw_I18n_Shared_Service_Route_Load.Request} */
+        const req = this.#route.createReq();
+        req.lang = code;
+        const res = await this.#gate.send(req, this.#route);
+        for (const ns of Object.keys(res))
+            this.#i18n.addResourceBundle(lang, ns, res[ns], true, true);
+    }
+
+    /**
      * Initialize 'i18next' object.
      *
      * @param {string[]} langs available languages (['en', 'es', 'ru', 'lv'])
