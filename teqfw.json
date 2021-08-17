@@ -6,7 +6,9 @@
     }
   },
   "core": {
-    "onInit": "TeqFw_I18n_Back_Plugin_Init"
+    "plugin": {
+      "onInit": "TeqFw_I18n_Back_Plugin_Init"
+    }
   },
   "web": {
     "services": [
