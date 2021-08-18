@@ -1,16 +1,16 @@
 {
-  "di": {
+  "@teqfw/di": {
     "autoload": {
       "ns": "TeqFw_I18n",
       "path": "./src"
     }
   },
-  "core": {
+  "@teqfw/core": {
     "plugin": {
       "onInit": "TeqFw_I18n_Back_Plugin_Init"
     }
   },
-  "web": {
+  "@teqfw/web": {
     "services": [
       "TeqFw_I18n_Back_Service_Load"
     ],
