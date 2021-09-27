@@ -24,7 +24,7 @@ export default class TeqFw_I18n_Back_Model_Registry {
         /** @type {Object} all available frontend i18n-resources (lang/namespace/...)  */
         let regFront;
         /** @type {TeqFw_Core_Back_Api_Dto_Config_Local} */
-        const cfgPlugin = fCfg.create(config.getLocal(DEF.MOD_CORE.NAME));
+        const cfgPlugin = fCfg.create(config.getLocal(DEF.MOD_CORE.SHARED.NAME));
         const force = parseBoolean(cfgPlugin.devMode); // force resources re-scan
 
         // DEFINE INNER FUNCTIONS
