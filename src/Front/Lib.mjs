@@ -4,6 +4,8 @@
  * @see https://www.i18next.com/
  * @see https://github.com/i18next/i18next-browser-languageDetector
  *
+ * TODO: this is not pure external library, it contains business logic (need split to lib & logic)
+ *
  */
 export default class TeqFw_I18n_Front_Lib {
     /** @type {TeqFw_Web_Front_Service_Gate} */
