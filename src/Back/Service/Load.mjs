@@ -7,7 +7,7 @@
 const NS = 'TeqFw_I18n_Back_Service_Load';
 
 /**
- * @implements TeqFw_Web_Back_Api_Service_IFactory
+ * @implements TeqFw_Web_Back_Api_WAPI_IFactory
  */
 export default class TeqFw_I18n_Back_Service_Load {
 
@@ -24,7 +24,7 @@ export default class TeqFw_I18n_Back_Service_Load {
         this.getService = function () {
             // DEFINE INNER FUNCTIONS
             /**
-             * @param {TeqFw_Web_Back_Api_Service_Context} context
+             * @param {TeqFw_Web_Back_Api_WAPI_Context} context
              * @return Promise<void>
              */
             async function service(context) {
