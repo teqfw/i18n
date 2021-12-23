@@ -1,14 +1,14 @@
 /**
  * Route data for service to load i18n resources on the front.
  *
- * @namespace TeqFw_I18n_Shared_Service_Route_Load
+ * @namespace TeqFw_I18n_Shared_WAPI_Load
  */
 // MODULE'S VARS
-const NS = 'TeqFw_I18n_Shared_Service_Route_Load';
+const NS = 'TeqFw_I18n_Shared_WAPI_Load';
 
 // MODULE'S CLASSES
 /**
- * @memberOf TeqFw_I18n_Shared_Service_Route_Load
+ * @memberOf TeqFw_I18n_Shared_WAPI_Load
  */
 class Request {
     /** @type {String} */
@@ -19,13 +19,13 @@ class Request {
 
 /**
  * This response contains unstructured data.
- * @memberOf TeqFw_I18n_Shared_Service_Route_Load
+ * @memberOf TeqFw_I18n_Shared_WAPI_Load
  */
 class Response {}
 
 /**
  * Factory to create new DTOs and get route address.
- * @memberOf TeqFw_I18n_Shared_Service_Route_Load
+ * @memberOf TeqFw_I18n_Shared_WAPI_Load
  * @implements TeqFw_Web_Back_Api_WAPI_IRoute
  */
 class Factory {
@@ -39,7 +39,7 @@ class Factory {
 
         /**
          * @param {Request|null} data
-         * @return {TeqFw_I18n_Shared_Service_Route_Load.Request}
+         * @return {TeqFw_I18n_Shared_WAPI_Load.Request}
          */
         this.createReq = function (data = null) {
             const res = new Request();
@@ -51,7 +51,7 @@ class Factory {
         /**
          * This response contains unstructured data.
          * @param {Response|null} data
-         * @return {TeqFw_I18n_Shared_Service_Route_Load.Response}
+         * @return {TeqFw_I18n_Shared_WAPI_Load.Response}
          */
         this.createRes = function (data = null) {
             return Object.assign(new Response(), data);

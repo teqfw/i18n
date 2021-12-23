@@ -12,12 +12,12 @@ export default class TeqFw_I18n_Front_Lib {
     #gate;
     /** @type {{init, language, use, addResourceBundle}} */
     #i18n;
-    /** @type {TeqFw_I18n_Shared_Service_Route_Load.Factory} */
+    /** @type {TeqFw_I18n_Shared_WAPI_Load.Factory} */
     #route;
 
     constructor(spec) {
         this.#gate = spec['TeqFw_Web_Front_WAPI_Gate$'];
-        this.#route = spec['TeqFw_I18n_Shared_Service_Route_Load#Factory$'];
+        this.#route = spec['TeqFw_I18n_Shared_WAPI_Load#Factory$'];
     }
 
     /**
@@ -44,7 +44,7 @@ export default class TeqFw_I18n_Front_Lib {
      * @return {Promise<void>}
      */
     async setLang(code) {
-        /** @type {TeqFw_I18n_Shared_Service_Route_Load.Request} */
+        /** @type {TeqFw_I18n_Shared_WAPI_Load.Request} */
         const req = this.#route.createReq();
         req.lang = code;
         const res = await this.#gate.send(req, this.#route);
@@ -76,7 +76,7 @@ export default class TeqFw_I18n_Front_Lib {
             await this.#i18n.init(options);
             // load resources for current language
             const lang = this.getLang();
-            /** @type {TeqFw_I18n_Shared_Service_Route_Load.Request} */
+            /** @type {TeqFw_I18n_Shared_WAPI_Load.Request} */
             const req = this.#route.createReq();
             req.lang = lang;
             const res = await this.#gate.send(req, this.#route);
