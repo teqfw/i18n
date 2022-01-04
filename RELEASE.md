@@ -1,5 +1,9 @@
 # @teqfw/i18n: releases
 
+# 0.x.x
+
+* Restructure directories and files.
+
 # 0.3.0
 
 * Restructure directories and files.

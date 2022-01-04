@@ -24,7 +24,7 @@ export default class TeqFw_I18n_Back_WAPI_Load {
         this.getService = function () {
             // DEFINE INNER FUNCTIONS
             /**
-             * @param {TeqFw_Web_Back_Server_Handler_WAPI_Context} context
+             * @param {TeqFw_Web_Back_App_Server_Handler_WAPI_Context} context
              * @return Promise<void>
              */
             async function service(context) {
