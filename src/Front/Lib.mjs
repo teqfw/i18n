@@ -8,7 +8,7 @@
  *
  */
 export default class TeqFw_I18n_Front_Lib {
-    /** @type {TeqFw_Web_Front_WAPI_Gate} */
+    /** @type {TeqFw_Web_Front_App_Connect_WAPI} */
     #gate;
     /** @type {{init, language, use, addResourceBundle}} */
     #i18n;
@@ -16,7 +16,7 @@ export default class TeqFw_I18n_Front_Lib {
     #route;
 
     constructor(spec) {
-        this.#gate = spec['TeqFw_Web_Front_WAPI_Gate$'];
+        this.#gate = spec['TeqFw_Web_Front_App_Connect_WAPI$'];
         this.#route = spec['TeqFw_I18n_Shared_WAPI_Load#Factory$'];
     }
 
