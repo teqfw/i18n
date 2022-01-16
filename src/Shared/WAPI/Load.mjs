@@ -29,6 +29,7 @@ class Response {}
  * @implements TeqFw_Web_Back_Api_WAPI_IRoute
  */
 class Factory {
+    static namespace = NS;
     constructor(spec) {
         // EXTRACT DEPS
         /** @type {TeqFw_I18n_Shared_Defaults} */
@@ -61,7 +62,6 @@ class Factory {
 }
 
 // MODULE'S EXPORT
-Object.defineProperty(Factory, 'name', {value: `${NS}.${Factory.constructor.name}`});
 Object.defineProperty(Request, 'name', {value: `${NS}.${Request.constructor.name}`});
 Object.defineProperty(Response, 'name', {value: `${NS}.${Response.constructor.name}`});
 export {
