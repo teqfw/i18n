@@ -9,7 +9,7 @@ const NS = 'TeqFw_I18n_Back_Plugin_Init';
 export default function Factory(spec) {
     // DEPS
     /** @type {TeqFw_Core_Shared_Api_ILogger} */
-    const logger = spec['TeqFw_Core_Shared_Api_ILogger$'];
+    const logger = spec['TeqFw_Core_Shared_Api_ILogger$$']; // instance
     /** @type {TeqFw_I18n_Back_Model_Registry} */
     const registry = spec['TeqFw_I18n_Back_Model_Registry$'];
 
