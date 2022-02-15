@@ -12,10 +12,10 @@ export default class TeqFw_I18n_Back_Defaults {
     MOD_CORE;
 
     constructor(spec) {
-        // EXTRACT DEPS
+        // DEPS
         this.MOD_CORE = spec['TeqFw_Core_Back_Defaults$'];
 
-        // MAIN FUNCTIONALITY
+        // MAIN
         Object.freeze(this);
     }
 }

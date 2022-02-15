@@ -7,18 +7,18 @@
 const NS = 'TeqFw_I18n_Back_Plugin_Init';
 
 export default function Factory(spec) {
-    // EXTRACT DEPS
+    // DEPS
     /** @type {TeqFw_Core_Shared_Api_ILogger} */
     const logger = spec['TeqFw_Core_Shared_Api_ILogger$'];
     /** @type {TeqFw_I18n_Back_Model_Registry} */
     const registry = spec['TeqFw_I18n_Back_Model_Registry$'];
 
-    // DEFINE INNER FUNCTIONS
+    // ENCLOSED FUNCS
     async function action() {
         await registry.init();
     }
 
-    // MAIN FUNCTIONALITY
+    // MAIN
     Object.defineProperty(action, 'name', {value: `${NS}.${action.name}`});
     return action;
 }

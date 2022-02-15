@@ -6,7 +6,7 @@
 export default class TeqFw_I18n_Back_Model_Registry {
 
     constructor(spec) {
-        // EXTRACT DEPS
+        // DEPS
         /** @type {TeqFw_I18n_Back_Defaults} */
         const DEF = spec['TeqFw_I18n_Back_Defaults$'];
         /** @type {TeqFw_Core_Back_Config} */
@@ -27,7 +27,7 @@ export default class TeqFw_I18n_Back_Model_Registry {
         const cfgPlugin = fCfg.create(config.getLocal(DEF.MOD_CORE.SHARED.NAME));
         const force = parseBoolean(cfgPlugin.devMode); // force resources re-scan
 
-        // DEFINE INNER FUNCTIONS
+        // ENCLOSED FUNCS
         /**
          * Scan i18n resources if not scanned yet or re-scan is forced by configuration.
          * @param {boolean} force

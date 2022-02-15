@@ -20,7 +20,7 @@ const FILE_MASK = /^([A-Za-z-]*)(.json)$/; // 'es-us.json'
  * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
  */
 export default function Factory(spec) {
-    // EXTRACT DEPS
+    // DEPS
     /** @type {TeqFw_I18n_Back_Defaults} */
     const DEF = spec['TeqFw_I18n_Back_Defaults$'];
     /** @type {TeqFw_Core_Back_App_Init_Plugin_Registry} */
@@ -28,7 +28,7 @@ export default function Factory(spec) {
     /** @type {Function|TeqFw_Core_Shared_Util.deepMerge} */
     const deepMerge = spec['TeqFw_Core_Shared_Util#deepMerge'];
 
-    // DEFINE INNER FUNCTIONS
+    // ENCLOSED FUNCS
     /**
      * Scan teq-plugins for i18n resources.
      *
@@ -36,7 +36,7 @@ export default function Factory(spec) {
      * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
      */
     async function action() {
-        // DEFINE INNER FUNCTIONS
+        // ENCLOSED FUNCS
         /**
          * Read all langs resources from one folder (shared, back, front).
          * @param {string} path full path to the folder with language resources
@@ -65,7 +65,7 @@ export default function Factory(spec) {
             return res;
         }
 
-        // MAIN FUNCTIONALITY
+        // MAIN
         const back = {}, front = {};
         for (const item of registry.getItemsByLevels()) {
             const ns = item.name;

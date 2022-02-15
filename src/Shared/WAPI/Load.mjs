@@ -31,7 +31,7 @@ class Response {}
 class Factory {
     static namespace = NS;
     constructor(spec) {
-        // EXTRACT DEPS
+        // DEPS
         /** @type {TeqFw_I18n_Shared_Defaults} */
         const DEF = spec['TeqFw_I18n_Shared_Defaults$'];
 
