@@ -15,8 +15,8 @@ export default class TeqFw_I18n_Back_Model_Registry {
         const fCfg = spec['TeqFw_Core_Back_Api_Dto_Config_Local#Factory$'];
         /** @type {Function|TeqFw_I18n_Back_Model_Registry_A_Scan.action} */
         const aScan = spec['TeqFw_I18n_Back_Model_Registry_A_Scan$'];
-        /** @type {Function|TeqFw_Core_Shared_Util.parseBoolean} */
-        const parseBoolean = spec['TeqFw_Core_Shared_Util#parseBoolean'];
+        /** @type {TeqFw_Core_Shared_Util_Cast.castBoolean|function} */
+        const castBoolean = spec['TeqFw_Core_Shared_Util_Cast.castBoolean'];
 
         // DEFINE WORKING VARS
         /** @type {Object} all available backend i18n-resources (lang/namespace/...)  */
@@ -25,7 +25,7 @@ export default class TeqFw_I18n_Back_Model_Registry {
         let regFront;
         /** @type {TeqFw_Core_Back_Api_Dto_Config_Local} */
         const cfgPlugin = fCfg.create(config.getLocal(DEF.MOD_CORE.SHARED.NAME));
-        const force = parseBoolean(cfgPlugin.devMode); // force resources re-scan
+        const force = castBoolean(cfgPlugin.devMode); // force resources re-scan
 
         // ENCLOSED FUNCS
         /**
