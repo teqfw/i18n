@@ -28,7 +28,7 @@ export default function Factory(spec) {
     /** @type {Function|TeqFw_Core_Shared_Util.deepMerge} */
     const deepMerge = spec['TeqFw_Core_Shared_Util#deepMerge'];
 
-    // ENCLOSED FUNCS
+    // FUNCS
     /**
      * Scan teq-plugins for i18n resources.
      *
@@ -36,7 +36,7 @@ export default function Factory(spec) {
      * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
      */
     async function action() {
-        // ENCLOSED FUNCS
+        // FUNCS
         /**
          * Read all langs resources from one folder (shared, back, front).
          * @param {string} path full path to the folder with language resources

@@ -13,7 +13,7 @@ export default function Factory(spec) {
     /** @type {TeqFw_I18n_Back_Model_Registry} */
     const registry = spec['TeqFw_I18n_Back_Model_Registry$'];
 
-    // ENCLOSED FUNCS
+    // FUNCS
     async function action() {
         await registry.init();
     }

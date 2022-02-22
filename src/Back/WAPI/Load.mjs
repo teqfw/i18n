@@ -22,7 +22,7 @@ export default class TeqFw_I18n_Back_WAPI_Load {
         this.getRouteFactory = () => route;
 
         this.getService = function () {
-            // ENCLOSED FUNCS
+            // FUNCS
             /**
              * @param {TeqFw_Web_Back_App_Server_Handler_WAPI_Context} context
              * @return Promise<void>

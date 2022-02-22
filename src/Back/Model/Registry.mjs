@@ -27,7 +27,7 @@ export default class TeqFw_I18n_Back_Model_Registry {
         const cfgPlugin = fCfg.create(config.getLocal(DEF.MOD_CORE.SHARED.NAME));
         const force = castBoolean(cfgPlugin.devMode); // force resources re-scan
 
-        // ENCLOSED FUNCS
+        // FUNCS
         /**
          * Scan i18n resources if not scanned yet or re-scan is forced by configuration.
          * @param {boolean} force
