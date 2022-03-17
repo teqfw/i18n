@@ -39,7 +39,7 @@ export default class TeqFw_I18n_Back_WAPI_Load {
             }
 
             // MAIN
-            Object.defineProperty(service, 'name', {value: `${NS}.${service.name}`});
+            Object.defineProperty(service, 'namespace', {value: NS});
             return service;
         }
 
