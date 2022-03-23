@@ -16,7 +16,7 @@
     ],
     "statics": {
       "/i18n-bld/": "/i18next-browser-languagedetector/dist/umd/",
-      "/i18n/": "/i18next/dist/umd/"
+      "/i18n/": "/i18next/dist/esm/"
     }
   }
 }
