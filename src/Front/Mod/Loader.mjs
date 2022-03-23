@@ -33,7 +33,8 @@ export default class TeqFw_I18n_Front_Mod_Loader {
 
         function loadFromLocalStorage(lang) {
             const key = `${KEY_PREFIX}/${lang}`;
-            return window.localStorage.getItem(key);
+            const str = window.localStorage.getItem(key);
+            return JSON.parse(str);
         }
 
         // INSTANCE METHODS
