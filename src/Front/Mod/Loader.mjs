@@ -39,16 +39,16 @@ export default class TeqFw_I18n_Front_Mod_Loader {
 
         // INSTANCE METHODS
         /**
-         * Get resources for one language.
+         * Get resources for one language. Load resources from local storage (if available) or from the server.
          * @param {string} lang
          * @return {Promise<Object>}
          */
         this.getLang = async function (lang) {
             let res;
             if (navigator.onLine) {
+                res = loadFromLocalStorage(lang);
                 const forceRemote = (cfg.devMode === true);
-                if (forceRemote) res = await loadFromServer(lang);
-                else res = loadFromLocalStorage(lang);
+                if (!res || forceRemote) res = await loadFromServer(lang);
             } else res = loadFromLocalStorage(lang);
             return res || {};
         }
