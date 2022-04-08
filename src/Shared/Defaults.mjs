@@ -5,7 +5,7 @@ export default class TeqFw_I18n_Shared_Defaults {
 
     NAME = '@teqfw/i18n';
 
-    SRV_LOAD = '/load';
+    WAPI_LOAD = '/load';
 
     constructor() {
         Object.freeze(this);

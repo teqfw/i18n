@@ -12,8 +12,8 @@ export default class TeqFw_I18n_Front_Mod_Loader {
         const cfg = spec['TeqFw_Web_Front_Dto_Config$'];
         /** @type {TeqFw_Web_Front_App_Connect_WAPI} */
         const wapi = spec['TeqFw_Web_Front_App_Connect_WAPI$'];
-        /** @type {TeqFw_I18n_Shared_WAPI_Load.Factory} */
-        const wapiLoad = spec['TeqFw_I18n_Shared_WAPI_Load.Factory$'];
+        /** @type {TeqFw_I18n_Shared_WAPI_Load} */
+        const wapiLoad = spec['TeqFw_I18n_Shared_WAPI_Load$'];
 
         // FUNCS
         /**
@@ -26,8 +26,12 @@ export default class TeqFw_I18n_Front_Mod_Loader {
             const req = wapiLoad.createReq();
             req.lang = lang;
             const res = await wapi.send(req, wapiLoad);
-            const key = `${KEY_PREFIX}/${lang}`;
-            window.localStorage.setItem(key, JSON.stringify(res));
+            // save loaded bundle into local storage
+            if (res) {
+                const key = `${KEY_PREFIX}/${lang}`;
+                window.localStorage.setItem(key, JSON.stringify(res));
+            }
+
             return res;
         }
 

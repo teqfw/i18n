@@ -1,5 +1,5 @@
 /**
- * Load i18n resources on the front.
+ * Web API service to load i18n resources on the front.
  *
  * @namespace TeqFw_I18n_Back_WAPI_Load
  */
@@ -7,7 +7,7 @@
 const NS = 'TeqFw_I18n_Back_WAPI_Load';
 
 /**
- * @implements TeqFw_Web_Back_Api_WAPI_IFactory
+ * @implements TeqFw_Web_Api_Back_Api_Factory_IService
  */
 export default class TeqFw_I18n_Back_WAPI_Load {
 
@@ -15,16 +15,17 @@ export default class TeqFw_I18n_Back_WAPI_Load {
         // DEPS
         /** @type {TeqFw_I18n_Back_Model_Registry} */
         const registry = spec['TeqFw_I18n_Back_Model_Registry$'];
-        /** @type {TeqFw_I18n_Shared_WAPI_Load.Factory} */
-        const route = spec['TeqFw_I18n_Shared_WAPI_Load#Factory$'];
+        /** @type {TeqFw_I18n_Shared_WAPI_Load} */
+        const endpoint = spec['TeqFw_I18n_Shared_WAPI_Load$'];
 
-        // DEFINE INSTANCE METHODS
-        this.getRouteFactory = () => route;
+        // INSTANCE METHODS
+
+        this.getEndpoint = () => endpoint;
 
         this.getService = function () {
             // FUNCS
             /**
-             * @param {TeqFw_Web_Back_App_Server_Handler_WAPI_Context} context
+             * @param {TeqFw_Web_Api_Back_Mod_Request_Context} context
              * @return Promise<void>
              */
             async function service(context) {

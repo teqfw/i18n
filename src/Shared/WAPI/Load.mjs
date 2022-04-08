@@ -1,5 +1,5 @@
 /**
- * Route data for service to load i18n resources on the front.
+ * Endpoint data for service to load i18n resources on the front.
  *
  * @namespace TeqFw_I18n_Shared_WAPI_Load
  */
@@ -24,19 +24,15 @@ class Request {
 class Response {}
 
 /**
- * Factory to create new DTOs and get route address.
- * @memberOf TeqFw_I18n_Shared_WAPI_Load
- * @implements TeqFw_Web_Shared_Api_WAPI_IRoute
+ * @implements TeqFw_Web_Api_Shared_Api_IEndpoint
  */
-class Factory {
-    static namespace = NS;
+export default class TeqFw_I18n_Shared_WAPI_Load {
     constructor(spec) {
         // DEPS
         /** @type {TeqFw_I18n_Shared_Defaults} */
         const DEF = spec['TeqFw_I18n_Shared_Defaults$'];
 
-        // DEFINE INSTANCE METHODS
-        this.getRoute = () => `/${DEF.NAME}${DEF.SRV_LOAD}`;
+        // INSTANCE METHODS
 
         /**
          * @param {Request|null} data
@@ -58,14 +54,10 @@ class Factory {
             return Object.assign(new Response(), data);
         }
 
+        this.getRoute = () => `/${DEF.NAME}${DEF.WAPI_LOAD}`;
     }
 }
 
 // MODULE'S EXPORT
 Object.defineProperty(Request, 'namespace', {value: NS});
 Object.defineProperty(Response, 'namespace', {value: NS});
-export {
-    Factory,
-    Request,
-    Response,
-};

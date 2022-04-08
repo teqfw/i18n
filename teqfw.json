@@ -11,12 +11,14 @@
     }
   },
   "@teqfw/web": {
-    "services": [
-      "TeqFw_I18n_Back_WAPI_Load"
-    ],
     "statics": {
       "/i18n-bld/": "/i18next-browser-languagedetector/dist/umd/",
       "/i18n/": "/i18next/dist/esm/"
     }
+  },
+  "@teqfw/web-api": {
+    "services": [
+      "TeqFw_I18n_Back_WAPI_Load"
+    ]
   }
 }
