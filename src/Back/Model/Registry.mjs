@@ -56,7 +56,7 @@ export default class TeqFw_I18n_Back_Model_Registry {
             }
         }
 
-        // DEFINE INSTANCE METHODS
+        // INSTANCE METHODS
 
         /**
          * Scan i18n resources if not scanned yet.

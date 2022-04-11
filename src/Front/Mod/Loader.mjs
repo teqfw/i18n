@@ -10,8 +10,8 @@ export default class TeqFw_I18n_Front_Mod_Loader {
         // DEPS
         /** @type {TeqFw_Web_Front_Dto_Config} */
         const cfg = spec['TeqFw_Web_Front_Dto_Config$'];
-        /** @type {TeqFw_Web_Front_App_Connect_WAPI} */
-        const wapi = spec['TeqFw_Web_Front_App_Connect_WAPI$'];
+        /** @type {TeqFw_Web_Api_Front_App_Connect_WAPI} */
+        const wapi = spec['TeqFw_Web_Api_Front_App_Connect_WAPI$'];
         /** @type {TeqFw_I18n_Shared_WAPI_Load} */
         const wapiLoad = spec['TeqFw_I18n_Shared_WAPI_Load$'];
 
