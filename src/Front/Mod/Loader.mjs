@@ -8,12 +8,12 @@ const KEY_PREFIX = '@teqfw/i18n/bundle';
 export default class TeqFw_I18n_Front_Mod_Loader {
     constructor(spec) {
         // DEPS
-        /** @type {TeqFw_Web_Front_Dto_Config} */
-        const cfg = spec['TeqFw_Web_Front_Dto_Config$'];
         /** @type {TeqFw_Web_Api_Front_App_Connect_WAPI} */
         const wapi = spec['TeqFw_Web_Api_Front_App_Connect_WAPI$'];
         /** @type {TeqFw_I18n_Shared_WAPI_Load} */
         const wapiLoad = spec['TeqFw_I18n_Shared_WAPI_Load$'];
+        /** @type {TeqFw_Web_Front_Mod_Config} */
+        const modCfg = spec['TeqFw_Web_Front_Mod_Config$'];
 
         // FUNCS
         /**
@@ -50,6 +50,7 @@ export default class TeqFw_I18n_Front_Mod_Loader {
         this.getLang = async function (lang) {
             let res;
             if (navigator.onLine) {
+                const cfg = modCfg.get();
                 res = loadFromLocalStorage(lang);
                 const forceRemote = (cfg.devMode === true);
                 if (!res || forceRemote) res = await loadFromServer(lang);
