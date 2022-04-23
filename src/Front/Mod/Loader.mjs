@@ -8,8 +8,8 @@ const KEY_PREFIX = '@teqfw/i18n/bundle';
 export default class TeqFw_I18n_Front_Mod_Loader {
     constructor(spec) {
         // DEPS
-        /** @type {TeqFw_Web_Api_Front_App_Connect_WAPI} */
-        const wapi = spec['TeqFw_Web_Api_Front_App_Connect_WAPI$'];
+        /** @type {TeqFw_Web_Api_Front_Mod_Connect} */
+        const wapi = spec['TeqFw_Web_Api_Front_Mod_Connect$'];
         /** @type {TeqFw_I18n_Shared_WAPI_Load} */
         const wapiLoad = spec['TeqFw_I18n_Shared_WAPI_Load$'];
         /** @type {TeqFw_Web_Front_Mod_Config} */
