@@ -23,8 +23,8 @@ export default function Factory(spec) {
     // DEPS
     /** @type {TeqFw_I18n_Back_Defaults} */
     const DEF = spec['TeqFw_I18n_Back_Defaults$'];
-    /** @type {TeqFw_Core_Back_App_Init_Plugin_Registry} */
-    const registry = spec['TeqFw_Core_Back_App_Init_Plugin_Registry$'];
+    /** @type {TeqFw_Core_Back_Mod_Init_Plugin_Registry} */
+    const registry = spec['TeqFw_Core_Back_Mod_Init_Plugin_Registry$'];
     /** @type {Function|TeqFw_Core_Shared_Util.deepMerge} */
     const deepMerge = spec['TeqFw_Core_Shared_Util#deepMerge'];
 
