@@ -65,9 +65,9 @@ export default class TeqFw_I18n_Front_Mod_I18n {
          * @return {Promise<void>}
          */
         this.setLang = async function (code) {
-            const bundle = await modLoader.getLang(fallback);
+            const bundle = await modLoader.getLang(code);
             for (const ns of Object.keys(bundle))
-                i18next.addResourceBundle(lang, ns, bundle[ns], true, true);
+                i18next.addResourceBundle(code, ns, bundle[ns], true, true);
             i18next.changeLanguage(code);
         }
     }
