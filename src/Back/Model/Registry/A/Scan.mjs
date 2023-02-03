@@ -4,8 +4,8 @@
  * @namespace TeqFw_I18n_Back_Model_Registry_A_Scan
  */
 // MODULE'S IMPORT
-import {existsSync, readdirSync, readFileSync, statSync} from 'fs';
-import {join} from 'path';
+import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
+import {join} from 'node:path';
 
 // MODULE'S VARS
 const NS = 'TeqFw_I18n_Back_Model_Registry_A_Scan';
@@ -25,8 +25,8 @@ export default function Factory(spec) {
     const DEF = spec['TeqFw_I18n_Back_Defaults$'];
     /** @type {TeqFw_Core_Back_Mod_Init_Plugin_Registry} */
     const registry = spec['TeqFw_Core_Back_Mod_Init_Plugin_Registry$'];
-    /** @type {Function|TeqFw_Core_Shared_Util.deepMerge} */
-    const deepMerge = spec['TeqFw_Core_Shared_Util#deepMerge'];
+    /** @type {TeqFw_Core_Shared_Util_Probe.deepMerge|function} */
+    const deepMerge = spec['TeqFw_Core_Shared_Util_Probe.deepMerge'];
 
     // FUNCS
     /**
