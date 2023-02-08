@@ -11,8 +11,8 @@ export default class TeqFw_I18n_Back_Model_Registry {
         const DEF = spec['TeqFw_I18n_Back_Defaults$'];
         /** @type {TeqFw_Core_Back_Config} */
         const config = spec['TeqFw_Core_Back_Config$'];
-        /** @type {TeqFw_Core_Back_Api_Dto_Config_Local.Factory} */
-        const fCfg = spec['TeqFw_Core_Back_Api_Dto_Config_Local#Factory$'];
+        /** @type {TeqFw_Core_Back_Plugin_Dto_Config_Local} */
+        const fCfg = spec['TeqFw_Core_Back_Plugin_Dto_Config_Local$'];
         /** @type {Function|TeqFw_I18n_Back_Model_Registry_A_Scan.action} */
         const aScan = spec['TeqFw_I18n_Back_Model_Registry_A_Scan$'];
         /** @type {TeqFw_Core_Shared_Util_Cast.castBoolean|function} */
@@ -23,8 +23,8 @@ export default class TeqFw_I18n_Back_Model_Registry {
         let regBack;
         /** @type {Object} all available frontend i18n-resources (lang/namespace/...)  */
         let regFront;
-        /** @type {TeqFw_Core_Back_Api_Dto_Config_Local} */
-        const cfgPlugin = fCfg.create(config.getLocal(DEF.MOD_CORE.SHARED.NAME));
+        /** @type {TeqFw_Core_Back_Plugin_Dto_Config_Local} */
+        const cfgPlugin = fCfg.createDto(config.getLocal(DEF.MOD_CORE.SHARED.NAME));
         const force = castBoolean(cfgPlugin.devMode); // force resources re-scan
 
         // FUNCS
