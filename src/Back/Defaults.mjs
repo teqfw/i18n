@@ -10,10 +10,17 @@ export default class TeqFw_I18n_Back_Defaults {
 
     /** @type {TeqFw_Core_Back_Defaults} */
     MOD_CORE;
+    /** @type {TeqFw_Web_Back_Defaults} */
+    MOD_WEB;
+
+    /** @type {TeqFw_I18n_Shared_Defaults} */
+    SHARED;
 
     constructor(spec) {
         // DEPS
         this.MOD_CORE = spec['TeqFw_Core_Back_Defaults$'];
+        this.MOD_WEB = spec['TeqFw_Web_Back_Defaults$'];
+        this.SHARED = spec['TeqFw_I18n_Shared_Defaults$'];
 
         // MAIN
         Object.freeze(this);

@@ -8,12 +8,18 @@ const KEY_PREFIX = '@teqfw/i18n/bundle';
 export default class TeqFw_I18n_Front_Mod_Loader {
     constructor(spec) {
         // DEPS
-        /** @type {TeqFw_Web_Api_Front_Mod_Connect} */
-        const wapi = spec['TeqFw_Web_Api_Front_Mod_Connect$'];
-        /** @type {TeqFw_I18n_Shared_WAPI_Load} */
-        const wapiLoad = spec['TeqFw_I18n_Shared_WAPI_Load$'];
+        /** @type {TeqFw_I18n_Front_Defaults} */
+        const DEF = spec['TeqFw_I18n_Front_Defaults$'];
+        /** @type {TeqFw_Core_Shared_Api_Logger} */
+        const logger = spec['TeqFw_Core_Shared_Api_Logger$$']; // instance
         /** @type {TeqFw_Web_Front_Mod_Config} */
         const modCfg = spec['TeqFw_Web_Front_Mod_Config$'];
+        /** @type {TeqFw_I18n_Shared_Dto_Load} */
+        const dtoLoad = spec['TeqFw_I18n_Shared_Dto_Load$'];
+
+        // VARS
+        let BASE;
+        logger.setNamespace(this.constructor.name);
 
         // FUNCS
         /**
@@ -22,17 +28,53 @@ export default class TeqFw_I18n_Front_Mod_Loader {
          * @return {Promise<Object>}
          */
         async function loadFromServer(lang) {
-            /** @type {TeqFw_I18n_Shared_WAPI_Load.Request} */
-            const req = wapiLoad.createReq();
-            req.lang = lang;
-            const res = await wapi.send(req, wapiLoad);
-            // save loaded bundle into local storage
-            if (res) {
-                const key = `${KEY_PREFIX}/${lang}`;
-                window.localStorage.setItem(key, JSON.stringify(res));
+            // FUNCS
+            /**
+             * Don't call this function in VARS section, because config is not loaded yet.
+             * @return {string}
+             * TODO: extract common code to util
+             */
+            function composeBaseUrl() {
+                if (!BASE) {
+                    const cfg = modCfg.get();
+                    const schema = '//';
+                    const domain = cfg.urlBase ?? location.hostname;
+                    let port = location.port; // empty string for default ports (80 & 443)
+                    if (port !== '') port = `:${port}`
+                    const root = (cfg.root) ? `/${cfg.root}` : '';
+                    const door = (cfg.door) ? `/${cfg.door}` : '';
+                    const space = `/${DEF.SHARED.SPACE_LOAD}`;
+                    BASE = `${schema}${domain}${port}${root}${door}${space}/`; // TODO: filter in service worker (???)
+                }
+                return BASE;
             }
 
-            return res;
+            // MAIN
+            let res;
+            /** @type {TeqFw_I18n_Shared_Dto_Load.Dto} */
+            const data = dtoLoad.createDto()
+            data.lang = lang;
+            const urlBase = composeBaseUrl();
+            const resp = await fetch(`${urlBase}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            if (resp.status === 200) {
+                // save loaded bundle into local storage
+                const bundle = await resp.json();
+                if (bundle) {
+                    const key = `${KEY_PREFIX}/${lang}`;
+                    window.localStorage.setItem(key, JSON.stringify(bundle));
+                    res = bundle;
+                }
+            } else {
+                const msg = `Error in i18n resources loading. Status: ${resp.status}.`;
+                logger.error(msg);
+            }
+            return res ?? {};
         }
 
         function loadFromLocalStorage(lang) {

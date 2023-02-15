@@ -3,6 +3,7 @@
 # 0.x.x
 
 * Restructure directories and files.
+* Use web requests handler instead of WAPI.
 
 # 0.3.0
 
