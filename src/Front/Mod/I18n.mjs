@@ -4,10 +4,10 @@
 export default class TeqFw_I18n_Front_Mod_I18n {
     constructor(spec) {
         // DEPS
-        /** @type {TeqFw_I18n_Front_Lib_I18next} */
-        const i18next = spec['TeqFw_I18n_Front_Lib_I18next#'];
-        /** @type {TeqFw_I18n_Front_Lib_LangDetect} */
-        const i18bld = spec['TeqFw_I18n_Front_Lib_LangDetect#'];
+        /** @type {TeqFw_I18n_Front_Ext_I18next} */
+        const i18next = spec['TeqFw_I18n_Front_Ext_I18next#'];
+        /** @type {TeqFw_I18n_Front_Ext_LangDetect} */
+        const i18bld = spec['TeqFw_I18n_Front_Ext_LangDetect#'];
         /** @type {TeqFw_I18n_Front_Mod_Loader} */
         const modLoader = spec['TeqFw_I18n_Front_Mod_Loader$'];
 

@@ -1,7 +1,7 @@
 /**
  * Wrap i18next library to use as ES6 module in TeqFW on the front.
  *
- * @namespace TeqFw_I18n_Front_Lib_I18next
+ * @namespace TeqFw_I18n_Front_Ext_I18next
  */
 import * as i18next from '../../../../i18n/i18next.bundled.js';
 // re-export

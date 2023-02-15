@@ -1,7 +1,7 @@
 /**
  * Wrap 'i18next-browser-languagedetector' library to use as ES6 module in TeqFW on the front.
  *
- * @namespace TeqFw_I18n_Front_Lib_LangDetect
+ * @namespace TeqFw_I18n_Front_Ext_LangDetect
  */
 if (window.i18nextBrowserLanguageDetector === undefined) {
     throw new Error(`
