@@ -6,17 +6,19 @@ const KEY_PREFIX = '@teqfw/i18n/bundle';
 
 // MODULE'S CLASSES
 export default class TeqFw_I18n_Front_Mod_Loader {
-    constructor(spec) {
-        // DEPS
-        /** @type {TeqFw_I18n_Front_Defaults} */
-        const DEF = spec['TeqFw_I18n_Front_Defaults$'];
-        /** @type {TeqFw_Core_Shared_Api_Logger} */
-        const logger = spec['TeqFw_Core_Shared_Api_Logger$$']; // instance
-        /** @type {TeqFw_Web_Front_Mod_Config} */
-        const modCfg = spec['TeqFw_Web_Front_Mod_Config$'];
-        /** @type {TeqFw_I18n_Shared_Dto_Load} */
-        const dtoLoad = spec['TeqFw_I18n_Shared_Dto_Load$'];
-
+    /**
+     * @param {TeqFw_I18n_Front_Defaults} DEF
+     * @param {TeqFw_Core_Shared_Api_Logger} logger -  instance
+     * @param {TeqFw_Web_Front_Mod_Config} modCfg
+     * @param {TeqFw_I18n_Shared_Dto_Load} dtoLoad
+     */
+    constructor(
+        {
+            TeqFw_I18n_Front_Defaults$: DEF,
+            TeqFw_Core_Shared_Api_Logger$$: logger,
+            TeqFw_Web_Front_Mod_Config$: modCfg,
+            TeqFw_I18n_Shared_Dto_Load$: dtoLoad,
+        }) {
         // VARS
         let BASE;
         logger.setNamespace(this.constructor.name);

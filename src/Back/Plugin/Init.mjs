@@ -5,12 +5,14 @@
  */
 // MODULE'S VARS
 const NS = 'TeqFw_I18n_Back_Plugin_Init';
+/**
+ * @param {TeqFw_I18n_Back_Model_Registry} registry
+ */
 
-export default function Factory(spec) {
-    // DEPS
-    /** @type {TeqFw_I18n_Back_Model_Registry} */
-    const registry = spec['TeqFw_I18n_Back_Model_Registry$'];
-
+export default function Factory(
+    {
+        TeqFw_I18n_Back_Model_Registry$: registry,
+    }) {
     // FUNCS
     async function action() {
         await registry.init();

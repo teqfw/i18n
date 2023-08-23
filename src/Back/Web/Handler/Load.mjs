@@ -19,17 +19,19 @@ const {
  * @implements TeqFw_Web_Back_Api_Dispatcher_IHandler
  */
 export default class TeqFw_I18n_Back_Web_Handler_Load {
-    constructor(spec) {
-        // DEPS
-        /** @type {TeqFw_I18n_Back_Defaults} */
-        const DEF = spec['TeqFw_I18n_Back_Defaults$'];
-        /** @type {TeqFw_Core_Shared_Api_Logger} */
-        const logger = spec['TeqFw_Core_Shared_Api_Logger$$']; // instance
-        /** @type {TeqFw_I18n_Back_Model_Registry} */
-        const registry = spec['TeqFw_I18n_Back_Model_Registry$'];
-        /** @type {TeqFw_I18n_Shared_Dto_Load} */
-        const dtoLoad = spec['TeqFw_I18n_Shared_Dto_Load$'];
-
+    /**
+     * @param {TeqFw_I18n_Back_Defaults} DEF
+     * @param {TeqFw_Core_Shared_Api_Logger} logger -  instance
+     * @param {TeqFw_I18n_Back_Model_Registry} registry
+     * @param {TeqFw_I18n_Shared_Dto_Load} dtoLoad
+     */
+    constructor(
+        {
+            TeqFw_I18n_Back_Defaults$: DEF,
+            TeqFw_Core_Shared_Api_Logger$$: logger,
+            TeqFw_I18n_Back_Model_Registry$: registry,
+            TeqFw_I18n_Shared_Dto_Load$: dtoLoad,
+        }) {
         // MAIN
         logger.setNamespace(this.constructor.name);
         Object.defineProperty(process, 'namespace', {value: NS});

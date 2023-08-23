@@ -2,15 +2,17 @@
  * Model to encapsulate i18next functionality.
  */
 export default class TeqFw_I18n_Front_Mod_I18n {
-    constructor(spec) {
-        // DEPS
-        /** @type {TeqFw_I18n_Front_Ext_I18next} */
-        const i18next = spec['TeqFw_I18n_Front_Ext_I18next#'];
-        /** @type {TeqFw_I18n_Front_Ext_LangDetect} */
-        const i18bld = spec['TeqFw_I18n_Front_Ext_LangDetect#'];
-        /** @type {TeqFw_I18n_Front_Mod_Loader} */
-        const modLoader = spec['TeqFw_I18n_Front_Mod_Loader$'];
-
+    /**
+     * @param {TeqFw_I18n_Front_Ext_I18next} i18next
+     * @param {TeqFw_I18n_Front_Ext_LangDetect} i18bld
+     * @param {TeqFw_I18n_Front_Mod_Loader} modLoader
+     */
+    constructor(
+        {
+            'TeqFw_I18n_Front_Ext_I18next#': i18next,
+            'TeqFw_I18n_Front_Ext_LangDetect#': i18bld,
+            TeqFw_I18n_Front_Mod_Loader$: modLoader,
+        }) {
         // INSTANCE METHODS
 
         /**
@@ -19,7 +21,7 @@ export default class TeqFw_I18n_Front_Mod_I18n {
          */
         this.getI18n = function () {
             return i18next;
-        }
+        };
 
         /**
          * Get code for current language.

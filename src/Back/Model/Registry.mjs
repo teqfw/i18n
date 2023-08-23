@@ -4,20 +4,22 @@
  * @namespace TeqFw_I18n_Back_Model_Registry
  */
 export default class TeqFw_I18n_Back_Model_Registry {
+    /**
+     * @param {TeqFw_I18n_Back_Defaults} DEF
+     * @param {TeqFw_Core_Back_Config} config
+     * @param {TeqFw_Core_Back_Plugin_Dto_Config_Local} fCfg
+     * @param {Function|TeqFw_I18n_Back_Model_Registry_A_Scan.action} aScan
+     * @param {TeqFw_Core_Shared_Util_Cast.castBoolean|function} castBoolean
+     */
 
-    constructor(spec) {
-        // DEPS
-        /** @type {TeqFw_I18n_Back_Defaults} */
-        const DEF = spec['TeqFw_I18n_Back_Defaults$'];
-        /** @type {TeqFw_Core_Back_Config} */
-        const config = spec['TeqFw_Core_Back_Config$'];
-        /** @type {TeqFw_Core_Back_Plugin_Dto_Config_Local} */
-        const fCfg = spec['TeqFw_Core_Back_Plugin_Dto_Config_Local$'];
-        /** @type {Function|TeqFw_I18n_Back_Model_Registry_A_Scan.action} */
-        const aScan = spec['TeqFw_I18n_Back_Model_Registry_A_Scan$'];
-        /** @type {TeqFw_Core_Shared_Util_Cast.castBoolean|function} */
-        const castBoolean = spec['TeqFw_Core_Shared_Util_Cast.castBoolean'];
-
+    constructor(
+        {
+            TeqFw_I18n_Back_Defaults$: DEF,
+            TeqFw_Core_Back_Config$: config,
+            TeqFw_Core_Back_Plugin_Dto_Config_Local$: fCfg,
+            TeqFw_I18n_Back_Model_Registry_A_Scan$: aScan,
+            'TeqFw_Core_Shared_Util_Cast.castBoolean': castBoolean,
+        }) {
         // DEFINE WORKING VARS
         /** @type {Object} all available backend i18n-resources (lang/namespace/...)  */
         let regBack;

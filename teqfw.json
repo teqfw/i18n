@@ -2,7 +2,8 @@
   "@teqfw/di": {
     "autoload": {
       "ns": "TeqFw_I18n",
-      "path": "./src"
+      "path": "./src",
+      "ext": "mjs"
     }
   },
   "@teqfw/core": {

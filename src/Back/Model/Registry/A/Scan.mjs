@@ -19,15 +19,17 @@ const FILE_MASK = /^([A-Za-z-]*)(.json)$/; // 'es-us.json'
  * @return function(): Object
  * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
  */
-export default function Factory(spec) {
-    // DEPS
-    /** @type {TeqFw_I18n_Back_Defaults} */
-    const DEF = spec['TeqFw_I18n_Back_Defaults$'];
-    /** @type {TeqFw_Core_Back_Mod_Init_Plugin_Registry} */
-    const registry = spec['TeqFw_Core_Back_Mod_Init_Plugin_Registry$'];
-    /** @type {TeqFw_Core_Shared_Util_Probe.deepMerge|function} */
-    const deepMerge = spec['TeqFw_Core_Shared_Util_Probe.deepMerge'];
-
+/**
+ * @param {TeqFw_I18n_Back_Defaults} DEF
+ * @param {TeqFw_Core_Back_Api_Plugin_Registry} registry
+ * @param {TeqFw_Core_Shared_Util_Probe.deepMerge|function} deepMerge
+ */
+export default function Factory(
+    {
+        TeqFw_I18n_Back_Defaults$: DEF,
+        TeqFw_Core_Back_Api_Plugin_Registry$: registry,
+        'TeqFw_Core_Shared_Util_Probe.deepMerge': deepMerge,
+    }) {
     // FUNCS
     /**
      * Scan teq-plugins for i18n resources.

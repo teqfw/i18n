@@ -4,11 +4,18 @@
 export default class TeqFw_I18n_Front_Defaults {
 
     /** @type {TeqFw_I18n_Shared_Defaults} */
-    SHARED ;
+    SHARED;
 
-    constructor(spec) {
+    /**
+     * @param {TeqFw_I18n_Shared_Defaults} SHARED
+     */
+    constructor(
+        {
+            TeqFw_I18n_Shared_Defaults$: SHARED,
+        }
+    ) {
         // DEPS
-        this.SHARED = spec['TeqFw_I18n_Shared_Defaults$'];
+        this.SHARED = SHARED;
 
         // MAIN
         Object.freeze(this);
