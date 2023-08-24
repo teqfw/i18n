@@ -1,7 +1,8 @@
 # @teqfw/i18n: releases
 
-# 0.x.x
+# 0.20.0
 
+* These changes are related to the new architecture of the `@teqfw/di` package.
 * Restructure directories and files.
 * Use web requests handler instead of WAPI.
 
