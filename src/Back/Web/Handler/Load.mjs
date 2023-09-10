@@ -33,7 +33,6 @@ export default class TeqFw_I18n_Back_Web_Handler_Load {
             TeqFw_I18n_Shared_Dto_Load$: dtoLoad,
         }) {
         // MAIN
-        logger.setNamespace(this.constructor.name);
         Object.defineProperty(process, 'namespace', {value: NS});
 
         // FUNCS

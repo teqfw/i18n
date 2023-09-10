@@ -21,7 +21,6 @@ export default class TeqFw_I18n_Front_Mod_Loader {
         }) {
         // VARS
         let BASE;
-        logger.setNamespace(this.constructor.name);
 
         // FUNCS
         /**
