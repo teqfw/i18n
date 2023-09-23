@@ -15,14 +15,11 @@ const FILE_MASK = /^([A-Za-z-]*)(.json)$/; // 'es-us.json'
 /**
  * Factory to setup execution context and to create the action.
  *
- * @param {TeqFw_Di_Shared_SpecProxy} spec
- * @return function(): Object
- * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
- */
-/**
  * @param {TeqFw_I18n_Back_Defaults} DEF
  * @param {TeqFw_Core_Back_Api_Plugin_Registry} registry
  * @param {TeqFw_Core_Shared_Util_Probe.deepMerge|function} deepMerge
+ * @return {function(): Object}
+ * @memberOf TeqFw_I18n_Back_Model_Registry_A_Scan
  */
 export default function Factory(
     {
