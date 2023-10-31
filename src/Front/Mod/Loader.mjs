@@ -37,13 +37,14 @@ export default class TeqFw_I18n_Front_Mod_Loader {
              */
             function composeBaseUrl() {
                 if (!BASE) {
-                    const cfg = modCfg.get();
+                    debugger
                     const schema = '//';
-                    const domain = cfg.urlBase ?? location.hostname;
+                    const cfg = modCfg?.get();
+                    const domain = cfg?.urlBase ?? location.hostname;
                     let port = location.port; // empty string for default ports (80 & 443)
                     if (port !== '') port = `:${port}`
-                    const root = (cfg.root) ? `/${cfg.root}` : '';
-                    const door = (cfg.door) ? `/${cfg.door}` : '';
+                    const root = (cfg?.root) ? `/${cfg.root}` : '';
+                    const door = (cfg?.door) ? `/${cfg.door}` : '';
                     const space = `/${DEF.SHARED.SPACE_LOAD}`;
                     BASE = `${schema}${domain}${port}${root}${door}${space}/`; // TODO: filter in service worker (???)
                 }
@@ -95,7 +96,7 @@ export default class TeqFw_I18n_Front_Mod_Loader {
             if (navigator.onLine) {
                 const cfg = modCfg.get();
                 res = loadFromLocalStorage(lang);
-                const forceRemote = (cfg.devMode === true);
+                const forceRemote = (cfg?.devMode === true);
                 if (!res || forceRemote) res = await loadFromServer(lang);
             } else res = loadFromLocalStorage(lang);
             return res || {};
