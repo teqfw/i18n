@@ -37,7 +37,6 @@ export default class TeqFw_I18n_Front_Mod_Loader {
              */
             function composeBaseUrl() {
                 if (!BASE) {
-                    debugger
                     const schema = '//';
                     const cfg = modCfg?.get();
                     const domain = cfg?.urlBase ?? location.hostname;
