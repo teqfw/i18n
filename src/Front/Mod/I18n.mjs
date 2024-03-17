@@ -3,18 +3,17 @@
  */
 export default class TeqFw_I18n_Front_Mod_I18n {
     /**
-     * @param {TeqFw_I18n_Front_Ext_I18next} i18next
-     * @param {TeqFw_I18n_Front_Ext_LangDetect} i18bld
+     * @param {TeqFw_I18n_Front_Ext} extLib
      * @param {TeqFw_I18n_Front_Mod_Loader} modLoader
      */
     constructor(
         {
-            'TeqFw_I18n_Front_Ext_I18next#': i18next,
-            'TeqFw_I18n_Front_Ext_LangDetect#': i18bld,
+            TeqFw_I18n_Front_Ext: extLib,
             TeqFw_I18n_Front_Mod_Loader$: modLoader,
-        }) {
+        }
+    ) {
         // INSTANCE METHODS
-
+        const {i18next} = extLib;
         /**
          * Get 'i18next' object.
          * @return {Object}
@@ -40,8 +39,6 @@ export default class TeqFw_I18n_Front_Mod_I18n {
          * @return {Promise<void>}
          */
         this.init = async function (langs, fallback, opts = {}) {
-            // add plugin https://github.com/i18next/i18next-browser-languageDetector
-            i18next.use(i18bld);
             // init i18next
             const options = Object.assign({}, opts);
             options.supportedLngs = langs;
