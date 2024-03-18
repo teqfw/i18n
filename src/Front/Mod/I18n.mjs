@@ -3,23 +3,27 @@
  */
 export default class TeqFw_I18n_Front_Mod_I18n {
     /**
+     * @param {TeqFw_Core_Shared_Api_Logger} logger -  instance
      * @param {TeqFw_I18n_Front_Ext} extLib
      * @param {TeqFw_I18n_Front_Mod_Loader} modLoader
      */
     constructor(
         {
+            TeqFw_Core_Shared_Api_Logger$$: logger,
             TeqFw_I18n_Front_Ext: extLib,
             TeqFw_I18n_Front_Mod_Loader$: modLoader,
         }
     ) {
+        // VARS
+        const _i18next = extLib.i18next;
+
         // INSTANCE METHODS
-        const {i18next} = extLib;
         /**
          * Get 'i18next' object.
          * @return {Object}
          */
         this.getI18n = function () {
-            return i18next;
+            return _i18next;
         };
 
         /**
@@ -27,7 +31,7 @@ export default class TeqFw_I18n_Front_Mod_I18n {
          * @return {string}
          */
         this.getLang = function () {
-            return i18next.language;
+            return _i18next.language;
         }
 
         /**
@@ -43,17 +47,22 @@ export default class TeqFw_I18n_Front_Mod_I18n {
             const options = Object.assign({}, opts);
             options.supportedLngs = langs;
             options.fallbackLng = fallback;
-            await i18next.init(options);
+            await _i18next.init(options);
             // load resources for current language
             const lang = this.getLang();
+            logger.info(`Current language: ${lang}`);
             const bundle = await modLoader.getLang(lang);
-            for (const ns of Object.keys(bundle))
-                i18next.addResourceBundle(lang, ns, bundle[ns], true, true);
+            for (const ns of Object.keys(bundle)) {
+                _i18next.addResourceBundle(lang, ns, bundle[ns], true, true);
+                logger.info(`Resource is added for selected language (lang:ns): ${lang}:${ns}`);
+            }
             // load resources for fallback language
             if (lang !== fallback) {
                 const bundle = await modLoader.getLang(fallback);
-                for (const ns of Object.keys(bundle))
-                    i18next.addResourceBundle(lang, ns, bundle[ns], true, true);
+                for (const ns of Object.keys(bundle)) {
+                    _i18next.addResourceBundle(fallback, ns, bundle[ns], true, true);
+                    logger.info(`Resource is added for fallback language (lang:ns): ${fallback}:${ns}`);
+                }
             }
         }
 
@@ -66,8 +75,8 @@ export default class TeqFw_I18n_Front_Mod_I18n {
         this.setLang = async function (code) {
             const bundle = await modLoader.getLang(code);
             for (const ns of Object.keys(bundle))
-                i18next.addResourceBundle(code, ns, bundle[ns], true, true);
-            i18next.changeLanguage(code);
+                _i18next.addResourceBundle(code, ns, bundle[ns], true, true);
+            _i18next.changeLanguage(code);
         }
     }
 }
