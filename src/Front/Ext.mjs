@@ -3,23 +3,8 @@
  *
  * @namespace TeqFw_I18n_Front_Ext
  */
-
-// MODULE'S FUNCS
-/**
- * Load UMD script from the back and execute it.
- * @param {string} url
- * @return {Promise}
- */
-async function loadUmd(url) {
-    return new Promise((resolve, reject) => {
-        // Create a script element
-        const script = document.createElement('script');
-        script.src = url;
-        script.onload = () => resolve();
-        script.onerror = (error) => reject(error);
-        document.head.appendChild(script);
-    });
-}
+// MODULE'S IMPORTS
+import {loadUmd} from '../../../web/@teqfw/web/js/loaders.mjs';
 
 // MODULE'S MAIN
 if (!window.i18next) await loadUmd('../../../../src/i18n/i18next.min.js');
