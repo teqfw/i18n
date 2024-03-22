@@ -41,7 +41,7 @@ export default class TeqFw_I18n_Front_Mod_Loader {
                     const cfg = modCfg?.get();
                     const domain = cfg?.urlBase ?? location.hostname;
                     let port = location.port; // empty string for default ports (80 & 443)
-                    if (port !== '') port = `:${port}`
+                    if (port !== '') port = `:${port}`;
                     const root = (cfg?.root) ? `/${cfg.root}` : '';
                     const door = (cfg?.door) ? `/${cfg.door}` : '';
                     const space = `/${DEF.SHARED.SPACE_LOAD}`;
@@ -53,7 +53,7 @@ export default class TeqFw_I18n_Front_Mod_Loader {
             // MAIN
             let res;
             /** @type {TeqFw_I18n_Shared_Dto_Load.Dto} */
-            const data = dtoLoad.createDto()
+            const data = dtoLoad.createDto();
             data.lang = lang;
             const urlBase = composeBaseUrl();
             const resp = await fetch(`${urlBase}`, {
@@ -91,15 +91,14 @@ export default class TeqFw_I18n_Front_Mod_Loader {
          * @return {Promise<Object>}
          */
         this.getLang = async function (lang) {
-            let res;
+            let res = loadFromLocalStorage(lang);
             if (navigator.onLine) {
                 const cfg = modCfg.get();
-                res = loadFromLocalStorage(lang);
                 const forceRemote = (cfg?.devMode === true);
                 if (!res || forceRemote) res = await loadFromServer(lang);
-            } else res = loadFromLocalStorage(lang);
+            }
             return res || {};
-        }
+        };
 
     }
 }
