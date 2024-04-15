@@ -1,5 +1,9 @@
 # @teqfw/i18n: releases
 
+# 0.21.0
+
+* Use the `./Ext/` space instead of `./Lib`.
+
 # 0.20.1
 
 * The logger initialization is moved to the post-processor.

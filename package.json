@@ -1,6 +1,6 @@
 {
   "name": "@teqfw/i18n",
-  "version": "0.20.1",
+  "version": "0.21.0",
   "description": "TeqFW: internationalization (i18next).",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
