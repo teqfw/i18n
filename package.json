@@ -1,6 +1,7 @@
 {
   "name": "@teqfw/i18n",
   "version": "0.21.0",
+  "type": "module",
   "description": "TeqFW: internationalization (i18next).",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
