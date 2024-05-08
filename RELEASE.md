@@ -1,5 +1,9 @@
 # @teqfw/i18n: releases
 
+# 0.22.0 - TODO
+
+* The i18n configuration object ().
+
 # 0.21.0
 
 * Use the `./Ext/` space instead of `./Lib`.

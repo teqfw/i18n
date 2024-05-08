@@ -12,6 +12,9 @@ framework.
 
 ## Overview
 
+This plugin collects the i18n resources from the other teq-plugins and makes them available to the application. It wraps
+the [i18next](https://www.npmjs.com/package/i18next) package.
+
 ### Namespace
 
 This plugin uses `TeqFw_I18n` namespace.
