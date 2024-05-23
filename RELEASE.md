@@ -3,7 +3,8 @@
 # 0.22.0 - TODO
 
 * The i18n configuration object (`TeqFw_I18n_Shared_Api_Config`).
-* The extracted local storage for bundles.
+* The local storage for the loaded bundles.
+* The utilities (`TeqFw_I18n_Shared_Util`).
 
 # 0.21.0
 
