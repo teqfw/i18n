@@ -1,15 +1,12 @@
 /**
  * Load i18n resources from server or local storage.
  */
-// MODULE'S VARS
-const KEY_PREFIX = '@teqfw/i18n/bundle';
-
-// MODULE'S CLASSES
 export default class TeqFw_I18n_Front_Mod_Loader {
     /**
      * @param {TeqFw_I18n_Front_Defaults} DEF
      * @param {TeqFw_Core_Shared_Api_Logger} logger -  instance
      * @param {TeqFw_Web_Front_Mod_Config} modCfg
+     * @param {TeqFw_I18n_Front_Store_Local_Bundle} storeBundle
      * @param {TeqFw_I18n_Shared_Dto_Load} dtoLoad
      */
     constructor(
@@ -17,8 +14,10 @@ export default class TeqFw_I18n_Front_Mod_Loader {
             TeqFw_I18n_Front_Defaults$: DEF,
             TeqFw_Core_Shared_Api_Logger$$: logger,
             TeqFw_Web_Front_Mod_Config$: modCfg,
+            TeqFw_I18n_Front_Store_Local_Bundle$: storeBundle,
             TeqFw_I18n_Shared_Dto_Load$: dtoLoad,
-        }) {
+        }
+    ) {
         // VARS
         let BASE;
 
@@ -67,8 +66,7 @@ export default class TeqFw_I18n_Front_Mod_Loader {
                 // save loaded bundle into local storage
                 const bundle = await resp.json();
                 if (bundle) {
-                    const key = `${KEY_PREFIX}/${lang}`;
-                    window.localStorage.setItem(key, JSON.stringify(bundle));
+                    storeBundle.set(JSON.stringify(bundle), lang);
                     res = bundle;
                 }
             } else {
@@ -79,12 +77,17 @@ export default class TeqFw_I18n_Front_Mod_Loader {
         }
 
         function loadFromLocalStorage(lang) {
-            const key = `${KEY_PREFIX}/${lang}`;
-            const str = window.localStorage.getItem(key);
+            const str = storeBundle.get(lang);
             return JSON.parse(str);
         }
 
         // INSTANCE METHODS
+
+        this.clearLocal = function () {
+            storeBundle.clear();
+            logger.info(`All locally stored i18n bundles are cleared.`);
+        };
+
         /**
          * Get resources for one language. Load resources from local storage (if available) or from the server.
          * @param {string} lang
